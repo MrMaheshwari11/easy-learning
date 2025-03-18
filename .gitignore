@@ -4,3 +4,7 @@ node_modules/
 dist/
 build/
 *.bak
+
+# Google Cloud credentials
+*-[0-9]*.json
+easylearning-452317-64bd677a977e.json
