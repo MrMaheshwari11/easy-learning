@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Easy Learning - A platform for learning computer science concepts">
+  <title>Easy Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header role="banner">
+    <div class="logo">Easy Learning</div>
+    <button id="toggleMenu" class="menu-btn" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-controls" id="navControls">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search concepts..." aria-label="Search concepts">
+        <button id="clearSearch" class="clear-search" aria-label="Clear search">
+          <i class="fas fa-times"></i>
+        </button>
+        
+      </div>
+      <select id="difficultyFilter" aria-label="Filter by difficulty">
+        <option value="">All Difficulties</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+        <option value="expert">Expert</option>
+      </select>
+      <button id="prevBtn" aria-label="Previous concept"><i class="fas fa-chevron-up"></i> Prev</button>
+      <button id="nextBtn" aria-label="Next concept">Next <i class="fas fa-chevron-down"></i></button>
+      <div class="progress" id="progressIndicator" aria-live="polite"></div>
+      <div class="points" id="pointsDisplay" aria-live="polite">Points: 0</div>
+      <button id="toggleBookmarks" class="bookmark-btn" aria-label="Toggle bookmarks panel">
+        <i class="fas fa-bookmark"></i>
+        <span class="bookmark-count" id="bookmarkCount"></span>
+      </button>
+      <button id="toggleSettings" class="settings-btn" aria-label="Toggle settings">
+        <i class="fas fa-cog"></i>
+      </button>
+      <button id="toggleFeedback" class="feedback-btn" aria-label="Give feedback">
+        <i class="fas fa-comment"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu-panel" id="menuPanel" role="complementary" aria-label="Navigation menu">
+    <div class="menu-content">
+      <div class="search-container">
+        <input type="text" id="menuSearchInput" placeholder="Search concepts..." aria-label="Search concepts">
+        <button id="menuClearSearch" class="clear-search" aria-label="Clear search">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <select id="menuDifficultyFilter" aria-label="Filter by difficulty">
+        <option value="">All Difficulties</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+        <option value="expert">Expert</option>
+      </select>
+      <button id="menuPrevBtn" aria-label="Previous concept"><i class="fas fa-chevron-up"></i> Prev</button>
+      <button id="menuNextBtn" aria-label="Next concept">Next <i class="fas fa-chevron-down"></i></button>
+      <button id="menuToggleBookmarks" class="menu-btn" aria-label="Toggle bookmarks panel">
+        <i class="fas fa-bookmark"></i> Bookmarks
+      </button>
+      <button id="menuToggleSettings" class="menu-btn" aria-label="Toggle settings">
+        <i class="fas fa-cog"></i> Settings
+      </button>
+      <button id="menuToggleFeedback" class="menu-btn" aria-label="Give feedback">
+        <i class="fas fa-comment"></i> Feedback
+      </button>
+    </div>
+  </div>
+
+  <div class="bookmark-panel" id="bookmarkPanel" role="complementary" aria-label="Bookmarks">
+    <h3>Bookmarked Concepts</h3>
+    <div id="bookmarkList"></div>
+  </div>
+
+  <div class="settings-panel" id="settingsPanel" role="complementary" aria-label="Settings">
+    <h3>Settings</h3>
+    <div class="settings-group">
+      <label for="animationsToggle">Animations</label>
+      <label class="switch">
+        <input type="checkbox" id="animationsToggle" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="settings-group">
+      <label for="themeSelector">Theme</label>
+      <select id="themeSelector">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        <option value="blue">Blue</option>
+        <option value="high-contrast">High Contrast</option>
+      </select>
+    </div>
+    <div class="settings-group">
+      <label for="fontSizeSelector">Font Size</label>
+      <select id="fontSizeSelector">
+        <option value="small">Small</option>
+        <option value="medium" selected>Medium</option>
+        <option value="large">Large</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="container" id="container" role="main">
+    <div class="loading-spinner" id="loadingSpinner">
+      <i class="fas fa-spinner fa-spin"></i>
+    </div>
+  </div>
+
+  <div class="notification" id="notification" role="alert">
+    <p id="notificationText"></p>
+  </div>
+
+  <script type="module" src="data.js"></script>
+  <script type="module" src="utils.js"></script>
+  <script type="module" src="state.js"></script>
+  <script type="module" src="ui.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
